@@ -2,6 +2,7 @@ package se331.rest.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import se331.rest.dao.AuctionDao;
@@ -31,8 +32,22 @@ public class AuctionServiceImpl implements AuctionService {
         return auctionDao.getAuction(id);
     }
 
+
     @Override
+    public Page<AuctionItem> getAuctions(String description, Pageable pageable) {
+        return auctionDao.getAuction(description, pageable);
+    }
+
+    @Override
+    public Page<AuctionItem> getAuctions(Integer value ,Pageable pageable) {
+        return auctionDao.getAuction(value, pageable);
+    }
+    @Override
+    @Transactional
     public AuctionItem save(AuctionItem auctionItem) {
+//        Bid bid = bidDao.findById(auctionItem.getSuccessfulBid().getId()).orElse(null);
+//        auctionItem.setSuccessfulBid(bid);
+//                bid.setItem(auctionItem);
         return auctionDao.save(auctionItem);
     }
 }

@@ -3,6 +3,7 @@ package se331.rest.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -18,7 +19,8 @@ public class AuctionItem {
     String description;
     String type;
     @OneToMany(mappedBy = "item")
-    List<Bid> bids;
+    @Builder.Default
+    List<Bid> bids = new ArrayList<>();
     @OneToOne
     Bid successfulBid;
 
