@@ -142,7 +142,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         auctionItem.setSuccessfulBid(bid9);
         auctionItem = auctionRepository.save(
                 AuctionItem.builder()
-                        .description("Monitor")
+                        .description("Mornitor")
                         .type("MSI")
                         .build()
         );
@@ -156,7 +156,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         auctionItem.setSuccessfulBid(bid12);
         auctionItem = auctionRepository.save(
                 AuctionItem.builder()
-                        .description("Monitor")
+                        .description("Mornitor")
                         .type("Logitech")
                         .build()
         );
